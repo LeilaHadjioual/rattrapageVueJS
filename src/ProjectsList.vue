@@ -2,7 +2,7 @@
   <div id="app" class="container-fluid">
     <h1>Interface de gestion de projet</h1>
     <div class="row">
-      <project-composant id="project" class="col-sm-3" :class="{active:project.isActive}" v-for="project in projects" v-bind:details="project">
+      <project-composant id="project" class="col-sm-3" :class="{active:project.isActive}" v-for="project in projects" v-bind:details="project" :key="project.id">
       </project-composant>
     </div>
   </div>

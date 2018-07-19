@@ -1,8 +1,9 @@
 <section class="project">
   <img :src="details.picture">
   <h2>{{ details.name }}</h2>
-  <input type="checkbox" id="checkbox" v-model="details.isActive">
-  <label for="checkbox" v-if="details.isActive">actif</label>
-  <label for="checkbox" v-else="!details.isActive">non actif</label>
+  <b-form-checkbox type="checkbox" v-model="details.isActive">
+  <label v-if="details.isActive">actif</label>
+  <label v-else="!details.isActive">non actif</label>
+  </b-form-checkbox>
 </section>
 
