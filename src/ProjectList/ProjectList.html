@@ -1,0 +1,20 @@
+<section class="projectList">
+  <h1>Interface de gestion de projet</h1><br>
+  <div class="container col-sm-3">
+  <table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+    <tr>
+      <th>PROJET</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr v-for="project in projects">
+      <td>
+        <router-link :to="{name:'test', params:{details : project}}" >{{project.name}}</router-link>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+

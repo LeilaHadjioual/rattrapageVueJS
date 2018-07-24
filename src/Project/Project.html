@@ -1,9 +1,14 @@
 <section class="project">
-  <img :src="details.picture">
-  <h2>{{ details.name }}</h2>
-  <b-form-checkbox type="checkbox" v-model="details.isActive">
-  <label v-if="details.isActive">actif</label>
-  <label v-else="!details.isActive">non actif</label>
-  </b-form-checkbox>
+  <h1> Détails du projet</h1><br>
+  <div class="container col-sm-3">
+    <div id="project1" :class="{active:details.isActive}">
+      <img :src="details.picture">
+      <h2>{{ details.name }}</h2>
+      <b-form-checkbox type="checkbox" v-model="details.isActive">
+        <label v-if="details.isActive">actif</label>
+        <label v-else="!details.isActive">non actif</label>
+      </b-form-checkbox>
+    </div>
+  </div>
 </section>
 
