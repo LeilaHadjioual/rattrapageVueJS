@@ -1,20 +1,37 @@
 <section class="projectList">
+  <!--navbar-->
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <form class="form-inline">
+      <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">
+              <icon name="search"> </icon>
+            </span>
+        </div>
+        <!--champ de recherche-->
+        <input type="text" class="form-control" placeholder="Rechercher…" size="30" v-model="search"/>
+      </div>
+    </form>
+  </nav>
+  <br>
+
+  <!--body-->
   <h1>Interface de gestion de projet</h1><br>
   <div class="container col-sm-3">
-  <table class="table table-bordered table-hover">
-    <thead class="thead-dark">
-    <tr>
-      <th>PROJET</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr v-for="project in projects">
-      <td>
-        <router-link :to="{name:'test', params:{details : project}}" >{{project.name}}</router-link>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+    <table class="table table-bordered table-hover">
+      <thead class="thead-dark">
+      <tr>
+        <th>PROJETS</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr v-for="project in filtered">
+        <td>
+          <router-link :to="{name:'test', params:{details : project}}">{{project.name}}</router-link>
+        </td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </section>
 

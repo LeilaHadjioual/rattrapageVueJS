@@ -1,11 +1,23 @@
+import Icon from 'vue-awesome/components/Icon'
+
+function research(tab, element) {
+  let result = [];
+  for (let i = 0; i < tab.length; i++) {
+    if (tab[i].name.startsWith(element)) {
+      result.push(tab[i])
+    }
+  }
+  return result;
+}
 
 export default {
   name: 'projectList',
+  components: {Icon},
   // components: {},
   // props: ["list"],
   data() {
     return {
-      fields: ['name'],
+      search:'',
       projects: [
         {
           id: '5b3e3da861f2d927949fa8da',
@@ -197,13 +209,14 @@ export default {
           "creation": "Thu Dec 10 1981 23:31:45 GMT+0100 (Central European Standard Time)"
         },
       ]
-
     }
-
 },
   computed: {
-
+    filtered : function() {
+      return research(this.projects,this.search.toUpperCase());
+    }
   },
+
   mounted () {
 
   },
