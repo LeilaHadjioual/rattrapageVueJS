@@ -1,5 +1,6 @@
 import Icon from 'vue-awesome/components/Icon'
 
+// recherche par nom de projet
 function research(tab, element) {
   let result = [];
   for (let i = 0; i < tab.length; i++) {
@@ -10,6 +11,30 @@ function research(tab, element) {
   return result;
 }
 
+// tri par date
+function sortByDate(tab) {
+  tab.sort(function (date1, date2) {
+    return new Date(date1.creation) - new Date(date2.creation);
+  })
+  return tab;
+}
+
+// tri par ordre alphabétique
+function sortByName(tab) {
+  for (let i = 0; i < tab.length; i++) {
+    tab.sort(function (name1, name2) {
+      if (name1.name > name2.name) {
+        return 1;
+      } else if (name1.name < name2.name) {
+        return -1;
+      } else if (name1.name === name2.name) {
+        return 0;
+      }
+    })
+  }
+  return tab;
+}
+
 export default {
   name: 'projectList',
   components: {Icon},
@@ -17,7 +42,7 @@ export default {
   // props: ["list"],
   data() {
     return {
-      search:'',
+      search: '',
       projects: [
         {
           id: '5b3e3da861f2d927949fa8da',
@@ -210,17 +235,28 @@ export default {
         },
       ]
     }
-},
+  },
   computed: {
-    filtered : function() {
-      return research(this.projects,this.search.toUpperCase());
+    filtered: function () {
+      return research(this.projects, this.search.toUpperCase());
     }
   },
 
-  mounted () {
+  mounted() {
 
   },
   methods: {
+    sortArray: function () {
+      return sortByDate(this.projects);
+    },
+
+    sortReverse: function () {
+      return sortByDate(this.projects).reverse();
+    },
+
+    sortAlpha: function () {
+      return sortByName(this.projects);
+    }
 
   }
 }

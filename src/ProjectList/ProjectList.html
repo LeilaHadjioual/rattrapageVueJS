@@ -17,18 +17,20 @@
 
   <!--body-->
   <h1>Interface de gestion de projet</h1><br>
-  <div class="container col-sm-3">
+  <div class="container col-sm-4">
     <table class="table table-bordered table-hover">
       <thead class="thead-dark">
       <tr>
-        <th>PROJETS</th>
+        <th>PROJETS <i class="fas fa-sort-alpha-down" @click="sortAlpha"></i></th>
+        <th>DATE CREATION <i class="fas fa-caret-up" @click="sortArray"></i><i class="fas fa-caret-down" @click="sortReverse"></i></th>
       </tr>
       </thead>
       <tbody>
-      <tr v-for="project in filtered">
+      <tr v-for="project in filtered ">
         <td>
           <router-link :to="{name:'test', params:{details : project}}">{{project.name}}</router-link>
         </td>
+        <td>{{project.creation}}</td>
       </tr>
       </tbody>
     </table>

@@ -9,7 +9,7 @@ import Icon from 'vue-awesome/icons'
 
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
-Vue.component('icon',Icon)
+Vue.component('icon',Icon);
 
 
 const routes = [
