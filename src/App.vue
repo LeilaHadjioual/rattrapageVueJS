@@ -4,7 +4,6 @@
   <!--v-bind:details="project" :key="project.id">-->
   <!--<allProjects v-bind:list="projects"> </allProjects>-->
   <div id="app" class="container-fluid">
-
     <router-view></router-view>
   </div>
   <!--</div>-->
@@ -13,19 +12,15 @@
 
 
 <script>
-
-
-
   export default {
     name: 'app',
-
     props: [],
     // components: {
     //   "allProjects": projectList,
     // },
     data() {
       return {
-
+//data déplacées après coup
         //     fields: ['name'],
         //     projects: [
         //       {
@@ -226,6 +221,8 @@
   }
 </script>
 
+
+
 <style lang="scss">
 
   @import "~bootstrap/scss/bootstrap.scss";
@@ -239,7 +236,10 @@
   }
 
   h1, h2 {
-    font-weight: normal;
+    font-weight: bold;
+    color:dimgrey;
   }
-
+  /*body {*/
+    /*background-image: url(https://i.pinimg.com/736x/56/55/f0/5655f0d336608021ebcf694280fed10a.jpg);*/
+  /*}*/
 </style>

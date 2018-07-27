@@ -1,13 +1,20 @@
 <section class="project">
-  <h1> Détails du projet</h1><br>
-  <div class="container col-sm-3">
+<!--details = props-->
+  <div class="container col-sm-10">
     <div id="project1" :class="{active:details.isActive}">
-      <img :src="details.picture">
-      <h2>{{ details.name }}</h2>
-      <b-form-checkbox type="checkbox" v-model="details.isActive">
-        <label v-if="details.isActive">actif</label>
-        <label v-else="!details.isActive">non actif</label>
-      </b-form-checkbox>
+      <img :src="details.creator.picture">
+      <h1>{{details.creator.name}}</h1><br>
+      <h2>{{ details.name }}</h2><br>
+      <p>{{details.description}}</p><br>
+      <span v-for="images in details.collaborators">
+        <img :src="images.picture">
+      </span>
+   <div>
+     <br><b-form-checkbox type="checkbox" v-model="details.isActive">
+      <label v-if="details.isActive">actif</label>
+      <label v-else="!details.isActive">non actif</label>
+    </b-form-checkbox>
+   </div>
     </div>
   </div>
 </section>

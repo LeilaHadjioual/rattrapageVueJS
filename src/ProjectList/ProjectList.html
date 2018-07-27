@@ -5,11 +5,18 @@
       <div class="input-group">
         <div class="input-group-prepend">
             <span class="input-group-text">
-              <icon name="search"> </icon>
+            <i class="fas fa-search"></i>
             </span>
         </div>
+
         <!--champ de recherche-->
         <input type="text" class="form-control" placeholder="Rechercher…" size="30" v-model="search"/>
+      </div>
+      <div >
+        <b-btn v-b-modal.modal1>Créer un projet </b-btn>
+        <!--composant modal crée-->
+        <!--utilise un event v-on pour communiquer avec le composant enfant-->
+        <modal v-on:newProject="add"></modal>
       </div>
     </form>
   </nav>
@@ -17,12 +24,13 @@
 
   <!--body-->
   <h1>Interface de gestion de projet</h1><br>
-  <div class="container col-sm-4">
+  <div class="container col-sm-6">
     <table class="table table-bordered table-hover">
       <thead class="thead-dark">
       <tr>
         <th>PROJETS <i class="fas fa-sort-alpha-down" @click="sortAlpha"></i></th>
         <th>DATE CREATION <i class="fas fa-caret-up" @click="sortArray"></i><i class="fas fa-caret-down" @click="sortReverse"></i></th>
+        <th>ACTION</th>
       </tr>
       </thead>
       <tbody>
@@ -30,7 +38,8 @@
         <td>
           <router-link :to="{name:'test', params:{details : project}}">{{project.name}}</router-link>
         </td>
-        <td>{{project.creation}}</td>
+        <td>{{project.createdAt}}</td>
+        <td><i @click="onDelete(project.id)" class="fas fa-trash-alt"></i>  <i class="fas fa-pencil-alt"></i></td>
       </tr>
       </tbody>
     </table>

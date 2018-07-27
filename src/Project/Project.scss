@@ -1,14 +1,26 @@
+//#project{
+//  margin-top: 20em;
+//}
+
 #project1 {
   text-align: center;
   border: solid lightgray;
   //margin: 1em 50em 1em 50em;
-  padding: 4em 1em 4em 1em;
+  padding: 2em 1em 2em 1em;
+  margin-top: 5em;
+  border-radius:15em;
 }
 
 .active {
-  background-color: palegreen;
+  background-color: lightyellow;
 }
 
+img{
+  border-radius:50%;
+}
 
+h1{
+  color: darkgray;
+}
 
 
